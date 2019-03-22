@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Test Page</title>
+</head>
+
+<body>
+	<h1>Sample</h1>
+	<hr>
+	<div id="info" style="color:red;"></div>
+	<div id="loader" style="display: none;"><img src="images/loader.svg" height="100px" width="100px" /></div>
+	<hr>
+	<input type="button" id="b01" value="Access Details" />
+	<script>
+		function loadDoc() {
+			document.getElementById("info").innerHTML = "";
+			document.getElementById("loader").style.display="block";
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("loader").style.display="none";
+					document.getElementById("info").innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("GET", "/get_coin", true);
+			xhttp.send();
+		}
+		document.getElementById("b01").onclick=loadDoc;
+	</script>
+</body>
+
+</html>
