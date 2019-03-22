@@ -8,6 +8,7 @@
 <body>
 	<h1>Sample</h1>
 	<hr>
+	<div>Length : <span id="l1"></span></div>
 	<div id="info" style="color:red;"></div>
 	<div id="loader" style="display: none;"><img src="images/loader.svg" height="100px" width="100px" /></div>
 	<hr>
@@ -21,6 +22,12 @@
 				if (this.readyState == 4 && this.status == 200) {
 					document.getElementById("loader").style.display="none";
 					document.getElementById("info").innerHTML = this.responseText;
+					var blockdata = JSON.parse(this.responseText);
+					document.getElementById("l1").innerHTML = blockdata.length;
+					var k = parseInt(blockdata.length);
+					for(i=0;i<k;++i){
+						document.getElementById("info").innerHTML=document.getElementById("info").innerHTML+"<br/>@@@@";
+					}
 				}
 			};
 			xhttp.open("GET", "/get_coin", true);
