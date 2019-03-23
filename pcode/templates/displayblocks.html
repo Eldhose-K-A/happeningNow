@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Block List
+	</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+	<style>
+		table,th,td{
+			border: 1px solid black;
+			padding: 10px;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h4 style="text-align: center;">Block Lists</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<b>Total Length : </b><span id="l1"></span>
+				<hr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="info" style="color: green;"></div>
+				<!--<hr>-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="d1"></div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+	<script>
+		function loadDoc() {
+			document.getElementById("d1").innerHTML = "";
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function () {
+				//--------------------------------------------------------------------------------------------
+				/*if (this.readyState == 4 && this.status == 200) {
+					var v1 = JSON.parse(this.responseText);
+					document.getElementById("l1").innerHTML = v1.length;
+					document.getElementById("info").innerHTML = this.responseText;
+					var x="<table><tr><th>Index</th><th>Timestamp</th><th>Proof</th><th>Previous Hash</th><th>Organisations</th><th>Writers</th><tr>";
+					for (i in v1.chain) {
+						x += "<tr>"+"<td>"+ v1.chain[i].index +"</td>"+"<td>"+ v1.chain[i].timestamp +"</td>"+"<td>"+ v1.chain[i].proof +"</td>"+"<td>"+ v1.chain[i].previous_hash +"</td>"+"<td>";
+						for (j in v1.chain[i].organisations) {
+							x += v1.chain[i].organisations[j].name+",";
+						}
+						x+="</td>"+"<td>";
+						for (j in v1.chain[i].writers) {
+							x += v1.chain[i].writers[j].name+",";
+						}
+						x+="</td>"+"</tr>";
+					}
+					x+="</table>";
+					document.getElementById("d1").innerHTML = x;
+				}*/
+				//----------------------------------------------------------------------------------------------
+				if (this.readyState == 4 && this.status == 200) {
+					var v1 = JSON.parse(this.responseText);
+					document.getElementById("l1").innerHTML = v1.length;
+					//document.getElementById("info").innerHTML = this.responseText;
+					var x="<div class='list-group'>";
+					for (i in v1.chain) {
+						x+="<a href='#' class='list-group-item list-group-item-action flex-column align-items-start'><div class='d-flex w-100 justify-content-between'>";
+						x+="<h5 class='mb-1' style='color: blue;'>"+v1.chain[i].timestamp+"</h5><small class='text-muted'>Index "+v1.chain[i].index+"</small></div>";
+						x+="<p class='mb-1'>"+"Proof : "+v1.chain[i].proof+"<br/>";
+						x+="Previous Hash : "+v1.chain[i].previous_hash+"<br/>Organisations : <ul>";
+						for (j in v1.chain[i].organisations) {
+							x += "<li>"+v1.chain[i].organisations[j].name+"</li>";
+						}
+						x+= "</ul>Writers : <ul>"
+						for (j in v1.chain[i].writers) {
+							x += "<li>"+v1.chain[i].writers[j].name+"</li>";
+						}
+						x+="</ul></p></a></br>";
+					}
+					x+="</div>";
+					document.getElementById("d1").innerHTML = x;
+				}
+				//----------------------------------------------------------------------------------------------
+			};
+			xhttp.open("GET", "/get_chain", true);
+			xhttp.send();
+		}
+		loadDoc();
+	</script>
+</body>
+</html>
