@@ -1,0 +1,56 @@
+<html>
+
+<head>
+	<title>Title</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				&nbsp;</br>&nbsp;</br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">&nbsp;</div>
+			<div class="col-sm-6">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12" style="text-align: center;">
+							<h3>ADD NEWS</h3>
+							<hr>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<form method="POST" action="/add_data2">
+								<div class="form-group">
+									<label for="writername">Writer Name</label>
+									<input type="text" class="form-control" id="writername" name="wname" required />
+								</div>
+								<div class="form-group">
+									<label for="organisationname">Organisation Name</label>
+									<input type="text" class="form-control" id="organisationname" name="oname" required />
+								</div>
+								<div class="form-group">
+									<label for="writerlicense">News</label>
+									<textarea class="form-control" rows="5" id="news" name="newsdata" required></textarea>
+								  </div>
+								<input type="submit" class="btn btn-primary" value="ADD NEWS" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">&nbsp;</div>
+		</div>
+	</div>
+
+
+	<script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+</body>
+
+</html>

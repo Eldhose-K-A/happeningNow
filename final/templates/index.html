@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                </br>&nbsp;</br>&nbsp;</br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">&nbsp;</div>
+            <div class="col-sm-6">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12" style="text-align: center">
+                            <h2>HAPPENING.NOW</h2>
+                            <hr style="color: lightblue;">
+                            Users Section
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6" style="text-align: center">
+                            </br>&nbsp;</br>
+                            <a class="btn btn-primary" style="width:100%;" href="/addorganisation">
+                                Add Organisation
+                            </a>
+                            </br>&nbsp;</br>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center">
+                            </br>&nbsp;</br>
+                            <a class="btn btn-primary" style="width:100%;" href="/addwriter">
+                                Add Writer
+                            </a>
+                            </br>&nbsp;</br>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center">
+                            <a class="btn btn-primary" style="width:100%;" href="/displayblocks">
+                                Show Blocks
+                            </a>
+                            </br>&nbsp;</br>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center">
+                            <a class="btn btn-primary" style="width:100%;" href="/mine_block">
+                                Mine Block
+                            </a>
+                            </br>&nbsp;</br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="text-align: center">
+                            </br>&nbsp;</br>
+                            News Section
+                            <hr>
+                            </br>&nbsp;</br>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center">
+                            <a class="btn btn-primary" style="width:100%;" href="/addnews">
+                                Add News
+                            </a>
+                            </br>&nbsp;</br>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center">
+                            <a class="btn btn-primary" style="width:100%;" href="/mine_block2">
+                                Mine Data Block
+                            </a>
+                            </br>&nbsp;</br>
+                        </div>
+                        <div class="col-sm-6" style="text-align: center">
+                            <a class="btn btn-primary" style="width:100%;" href="/displaydatablocks">
+                                Show Data Blocks
+                            </a>
+                            </br>&nbsp;</br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">&nbsp;</div>
+        </div>
+    </div>
+
+
+    <!--<a class="btn btn-primary" href="/addorganisation">
+        Add Organisation
+    </a>
+    <a class="btn btn-primary" href="/addwriter">
+        Add Writer
+    </a>
+    <a class="btn btn-primary" href="/displayblocks">
+        Show Blocks
+    </a>
+    <a class="btn btn-primary" href="/mine_block">
+        Mine Block
+    </a>-->
+    <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+</body>
+
+</html>

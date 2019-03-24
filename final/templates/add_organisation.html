@@ -1,0 +1,59 @@
+<html>
+
+<head>
+	<title>Title</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+
+<body>
+
+	<!--<form method="POST" action="/add_organisation">
+		<h3>Add Organisations</h3>
+		Name : <input type="text" name="name" required />
+		License : <input type="text" name="license" required />
+		<input type="submit" value="Add" />
+	</form>-->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				&nbsp;</br>&nbsp;</br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">&nbsp;</div>
+			<div class="col-sm-6">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12" style="text-align: center;">
+							<h3>ADD ORGANISATIONS</h3>
+							<hr>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<form method="POST" action="/add_organisation">
+								<div class="form-group">
+									<label for="organisationname">Organisation Name</label>
+									<input type="text" class="form-control" id="organisationname" name="name" required />
+								</div>
+								<div class="form-group">
+									<label for="organisationlicense">Organisation License</label>
+									<input type="text" class="form-control" id="organisationlicense" name="license" required />
+								</div>
+								<button type="submit" class="btn btn-primary">ADD</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">&nbsp;</div>
+		</div>
+	</div>
+
+
+	<script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+</body>
+
+</html>
